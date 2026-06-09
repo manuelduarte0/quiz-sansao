@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 Perguntas Bíblicas sobre Sansão com Respostas</title>
+<meta name="description" content="Quiz bíblico grátis com 20 perguntas sobre Sansão. Teste seu conhecimento com alternativas A, B, C e referências bíblicas em Juízes.">
+<style>
+  body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 20px; }
+  .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  h1 { text-align: center; color: #2c3e50; }
+  .pergunta { margin-bottom: 25px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+  .pergunta h3 { margin: 0 0 10px 0; color: #34495e; }
+  .alternativa { display: block; margin: 8px 0; padding: 10px; background: #ecf0f1; border-radius: 6px; cursor: pointer; }
+  .alternativa:hover { background: #d5dbdb; }
+  .alternativa.correta { background: #2ecc71; color: white; }
+  .alternativa.errada { background: #e74c3c; color: white; }
+  .ref { font-size: 12px; color: #7f8c8d; margin-top: 8px; }
+  #placar { text-align: center; font-size: 20px; margin: 20px 0; font-weight: bold; }
+  button { display: block; margin: 20px auto; padding: 12px 25px; background: #3498db; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>20 Perguntas Bíblicas sobre Sansão</h1>
+  <div id="quiz"></div>
+  <div id="placar"></div>
+  <button onclick="reiniciar()">Reiniciar Quiz</button>
+</div>
+<script>
+const perguntas = [{"p":"1. Qual era o nome da mãe de Sansão?","a":["Ana","A Bíblia não diz o nome","Débora"],"correta":1,"ref":"Juízes 13:2-3"},{"p":"2. Sansão era de qual tribo de Israel?","a":["Judá","Dã","Benjamim"],"correta":1,"ref":"Juízes 13:2"},{"p":"3. Que voto Sansão tinha desde o nascimento?","a":["Voto de pobreza","Voto de nazireu","Voto de silêncio"],"correta":1,"ref":"Juízes 13:5"},{"p":"4. O que Sansão rasgou com as próprias mãos?","a":["Um urso","Um leão jovem","Um filisteu"],"correta":1,"ref":"Juízes 14:5-6"},{"p":"5. O que Sansão encontrou depois dentro do leão morto?","a":["Um enxame de abelhas e mel","Ouro","Uma espada"],"correta":0,"ref":"Juízes 14:8"},{"p":"6. Quantas raposas Sansão capturou para queimar as plantações?","a":["100","300","50"],"correta":1,"ref":"Juízes 15:4"},{"p":"7. Com que Sansão matou mil filisteus?","a":["Uma espada","Uma queixada de jumento","Uma lança"],"correta":1,"ref":"Juízes 15:15"},{"p":"8. Qual era o nome da mulher que Sansão amou no vale de Soreque?","a":["Mical","Dalila","Rute"],"correta":1,"ref":"Juízes 16:4"},{"p":"9. Quantas vezes Dalila tentou descobrir o segredo da força de Sansão?","a":["3 vezes","4 vezes","7 vezes"],"correta":1,"ref":"Juízes 16:6-15"},{"p":"10. Onde estava o segredo da força de Sansão?","a":["Nos músculos","No cabelo","Na fé"],"correta":1,"ref":"Juízes 16:17"},{"p":"11. O que os filisteus fizeram com Sansão após capturá-lo?","a":["Mataram ele","Vazaram seus olhos","Prenderam numa caverna"],"correta":1,"ref":"Juízes 16:21"},{"p":"12. Para onde levaram Sansão para trabalhar como escravo?","a":["Para moer trigo na prisão","Para construir muros","Para cuidar de ovelhas"],"correta":0,"ref":"Juízes 16:21"},{"p":"13. O que começou a acontecer com o cabelo de Sansão na prisão?","a":["Ficou branco","Começou a crescer de novo","Caiu todo"],"correta":1,"ref":"Juízes 16:22"},{"p":"14. Para qual deus os filisteus fizeram festa quando capturaram Sansão?","a":["Baal","Dagom","Moloque"],"correta":1,"ref":"Juízes 16:23"},{"p":"15. Em que tipo de lugar Sansão foi colocado para divertir os filisteus?","a":["Num teatro","No templo de Dagom","Numa arena"],"correta":1,"ref":"Juízes 16:25"},{"p":"16. Entre o quê Sansão foi colocado no templo?","a":["Entre duas tochas","Entre as duas colunas principais","Entre dois altares"],"correta":1,"ref":"Juízes 16:25-26"},{"p":"17. Qual foi a última oração de Sansão?","a":["Senhor, perdoa-me","Senhor Deus, lembra-te de mim e fortalece-me","Pai, nas tuas mãos entrego meu espírito"],"correta":1,"ref":"Juízes 16:28"},{"p":"18. Quantas pessoas morreram quando Sansão derrubou o templo?","a":["Cerca de mil","Cerca de três mil","Não diz o número"],"correta":1,"ref":"Juízes 16:27"},{"p":"19. Sansão matou mais na sua morte ou durante sua vida?","a":["Durante a vida","Na sua morte","O mesmo número"],"correta":1,"ref":"Juízes 16:30"},{"p":"20. Por quantos anos Sansão julgou Israel?","a":["10 anos","20 anos","40 anos"],"correta":1,"ref":"Juízes 16:31"}];
+let acertos=0,respondidas=0;function carregarQuiz(){const e=document.getElementById("quiz");e.innerHTML="",perguntas.forEach((t,i)=>{e.innerHTML+=`<div class="pergunta" id="p${i}"><h3>${t.p}</h3>${t.a.map((e,s)=>`<div class="alternativa" onclick="responder(${i},${s})">${String.fromCharCode(97+s)}) ${e}</div>`).join("")}<div class="ref">Ref: ${t.ref}</div></div>`})}function responder(e,t){const i=document.getElementById(`p${e}`),s=i.querySelectorAll(".alternativa");if(s[0].classList.contains("correta")||s[0].classList.contains("errada"))return;respondidas++,t===perguntas[e].correta?(s[t].classList.add("correta"),acertos++):(s[t].classList.add("errada"),s[perguntas[e].correta].classList.add("correta")),document.getElementById("placar").innerHTML=`Placar: ${acertos}/${perguntas.length}`,respondidas===perguntas.length&&setTimeout(()=>{alert(`Fim! Você acertou ${acertos} de ${perguntas.length} perguntas!`)},300)}function reiniciar(){acertos=0,respondidas=0,document.getElementById("placar").innerHTML="",carregarQuiz(),window.scrollTo(0,0)}carregarQuiz();
+</script>
+</body>
+</html>
